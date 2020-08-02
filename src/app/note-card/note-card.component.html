@@ -1,0 +1,13 @@
+<div #container class="note_card_container">
+
+  <div class="note_card_content" [routerLink]="link">
+    <h1 class="note_card_title">{{ title }}</h1>
+
+    <div #bodyText class="note_card_body">
+      <p>{{ body | slice:0:140 }} <span *ngIf="body && body.length > 140">...</span></p>
+    </div>
+  </div>
+
+  <div class="x_button" (click)="delete()">&times;</div>
+
+</div>

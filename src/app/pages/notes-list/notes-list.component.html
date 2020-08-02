@@ -1,1 +1,22 @@
-<p>notes-list works!</p>
+<div class="main_container">
+
+  <div class="search_container">
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="text" placeholder="Search...">
+        <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="notes_list">
+    <note-card *ngFor="let note of notes; index as i" (delete)="onDelete(i)" [link]="i" [title]="note.title"
+      [body]="note.body">
+    </note-card>
+  </div>
+
+  <button class="button floating_add_button is-primary" routerLink="new">+ Add</button>
+
+</div>
