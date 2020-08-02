@@ -11,8 +11,8 @@
     </div>
   </div>
 
-  <div class="notes_list">
-    <note-card *ngFor="let note of notes; index as i" (delete)="onDelete(i)" [link]="i" [title]="note.title"
+  <div class="notes_list" [@listAnim]>
+    <note-card *ngFor="let note of notes; index as i" [@itemAnim] (delete)="onDelete(i)" [link]="i" [title]="note.title"
       [body]="note.body">
     </note-card>
   </div>
