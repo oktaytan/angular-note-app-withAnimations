@@ -3,7 +3,7 @@
   <div class="search_container">
     <div class="field">
       <p class="control has-icons-left">
-        <input class="input" type="text" placeholder="Search...">
+        <input #filterInput class="input" type="text" (keyup)="filter($event.target.value)" placeholder="Search...">
         <span class="icon is-small is-left">
           <i class="fas fa-search"></i>
         </span>
@@ -12,8 +12,8 @@
   </div>
 
   <div class="notes_list" [@listAnim]>
-    <note-card *ngFor="let note of notes; index as i" [@itemAnim] (delete)="onDelete(i)" [link]="i" [title]="note.title"
-      [body]="note.body">
+    <note-card *ngFor="let note of filteredNotes" [@itemAnim] (delete)="onDelete(note)" [link]="genereateNoteURL(note)"
+      [title]="note.title" [body]="note.body">
     </note-card>
   </div>
 
